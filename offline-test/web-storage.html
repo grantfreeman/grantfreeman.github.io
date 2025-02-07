@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>HTML5 Web Storage Example</title>
+    </head>
+    <body>
+        <p>Input Data</p>
+        <input type="text" id="input-data">
+        <button id="store-data">Store Data</button>
+        <button id="retrieve-data">Retrieve Data</button>
+        <p id="output"></p>
+
+        <script>
+            const inputText = document.querySelector("#input-data")
+            const storeDataBtn = document.querySelector("#store-data")
+            const retrieveDataBtn = document.querySelector("#retrieve-data")
+            const output = document.querySelector("#output")
+
+            storeDataBtn.addEventListener("click", function() {
+                let inputData = inputText.value
+                inputText.value = ""
+                localStorage.setItem("key", inputData)
+                sessionStorage.setItem("key", inputData)
+                output.innerHTML = "Data has been stored."
+            });
+
+            retrieveDataBtn.addEventListener("click", function() {
+                let localData = localStorage.getItem("key")
+                let sessionData = sessionStorage.getItem("key")
+                output.innerHTML = `Retrieved: local=${localData} :: session=${sessionData}`
+            });
+        </script>
+    </body>
+</html>
