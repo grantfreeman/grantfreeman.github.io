@@ -1,8 +1,8 @@
 const cacheName = 'v1'
 const cachedFiles = [
-    '/',
-    '/service-worker.html',
-    '/web-storage.html'
+    '/offline-test',
+    'service-worker.html',
+    'web-storage.html'
 ];
 
 // install event - cache files
